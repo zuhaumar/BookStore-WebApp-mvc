@@ -1,0 +1,44 @@
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@model List<Ecommerce.Models.Book>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="book-list">
+        @foreach (var book in Model)
+        {
+            <div class="book-item">
+                <h3>@book.Title</h3>
+                <p>@book.Author</p>
+                <p>@book.Genre</p>
+                <p>@book.Price</p>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No books available.</p>
+}
+
+<style>
+    .book-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .book-item {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px;
+        width: 200px;
+    }
+</style>
