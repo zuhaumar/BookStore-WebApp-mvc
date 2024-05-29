@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-
         body {
             background-color: #dbf3f3;
             font-family: Arial, sans-serif;
@@ -19,11 +18,22 @@
         .navbar {
             display: flex;
             align-items: center;
+            justify-content: space-between; 
+        }
+
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .right {
+            display: flex;
+            align-items: center;
         }
 
         .navbar .logo img {
-            margin-top: 10px;
-            height: 65px;
+            margin-top: 12px;
+            height: 60px;
             width: auto;
             transition: transform 0.5s;
         }
@@ -115,41 +125,61 @@
             font-size: 1.105em; 
         }
 
-    </style>
+        .login-button {
+            background-color: #165bd8;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
 
+        .login-button:hover {
+            background-color: #0d4abf;
+        }
+
+    </style>
 </head>
 
 <body>
     <nav class="navbar">
-        <ul>
-            <li>
-                <a href="#" class="logo">
-                     <img src="@Url.Content("~/images/logo.png")" alt="Logo">
-                </a>
-            </li>
+        <div class="left">
+            <ul>
+                <li>
+                    <a href="#" class="logo">
+                        <img src="@Url.Content("~/images/logo.png")" alt="Logo">
+                    </a>
+                </li>
 
-            <li class="navbar-text">
-                <a href="#" class="icon-wrapper">
-                    Best Sellers <i class="fas fa-star star-icon"></i>
-                </a>
-            </li>
+                <li class="navbar-text">
+                    <a href="#" class="icon-wrapper">
+                        Best Sellers <i class="fas fa-star star-icon"></i>
+                    </a>
+                </li>
 
+                <li class="navbar-text">
+                    <a href="#" id="genres" class="icon-wrapper">Genres <i class="fas fa-caret-down arrow-icon"></i></a>
+                    <ul id="genres-dropdown" class="dropdown-content">
+                        <li><a href="/Book/FetchByGenre/Action">Action</a></li>
+                        <li><a href="/Book/FetchByGenre/Adventure">Adventure</a></li>
+                        <li><a href="/Book/FetchByGenre/Animation">Animation</a></li>
+                        <li><a href="/Book/FetchByGenre/Biography">Biography</a></li>
+                        <li><a href="/Book/FetchByGenre/Comedy">Comedy</a></li>
+                        <li><a href="/Book/FetchByGenre/Crime">Crime</a></li>
+                        <li><a href="/Book/FetchByGenre/Documentary">Documentary</a></li>
+                        <li><a href="/Book/FetchByGenre/Romance">Romance</a></li>
+                        <li><a href="/Book/FetchByGenre/Thriller">Thriller</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-            <li class="navbar-text">
-                <a href="#" id="genres" class="icon-wrapper">Genres <i class="fas fa-caret-down arrow-icon"></i></a>
-                <ul id="genres-dropdown" class="dropdown-content">
-                    <li><a href="/Book/FetchByGenre/Action">Action</a></li>
-                    <li><a href="/Book/FetchByGenre/Adventure">Adventure</a></li>
-                    <li><a href="/Book/FetchByGenre/Animation">Animation</a></li>
-                    <li><a href="/Book/FetchByGenre/Biography">Biography</a></li>
-                    <li><a href="/Book/FetchByGenre/Comedy">Comedy</a></li>
-                    <li><a href="/Book/FetchByGenre/Crime">Crime</a></li>
-                    <li><a href="/Book/FetchByGenre/Documentaty">Documentary</a></li>
-                    <li><a href="/Book/FetchByGenre/Romance">Romance</a></li>
-                    <li><a href="/Book/FetchByGenre/Thriller">Thriller</a></li>
-                </ul>
-            </li>
-        </ul>
+        <div class="right">
+            <button class="login-button">Login</button>
+        </div>
     </nav>
 
     <div class="text-center">
