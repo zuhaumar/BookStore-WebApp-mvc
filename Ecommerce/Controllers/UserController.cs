@@ -40,14 +40,21 @@ public class UserController : Controller
             }
 
             await _userRepository.CreateUser(user);
-            return RedirectToAction("Login", "Account"); 
         }
 
         return View(user);
     }
 
+    //Implement the following two functions
     [HttpGet]
     public async Task<IActionResult> Dashboard()
+    {
+        var books = await _bookRepository.GetAllBooksAsync();
+        return View(books);
+    }
+
+        [HttpGet]
+    public async Task<IActionResult> Login()
     {
         var books = await _bookRepository.GetAllBooksAsync();
         return View(books);

@@ -8,6 +8,12 @@ namespace Ecommerce.Models{
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
+        [BsonElement("firstname")]
+        public string? Firstname { get; set; }
+
+        [BsonElement("lastname")]
+        public string? Lastname { get; set; }
+
         [BsonElement("username")]
         public string? Username { get; set; }
 

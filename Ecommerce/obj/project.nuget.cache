@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/lSCGcHg+21hfkWFD8OfSe1TbF5sPYQ2RGbq8S7wQQCU5mUlMQCT1gad0jJTpZqDHTunD480xT9ROXXfjPKuXg==",
+  "dgSpecHash": "1IVfzzSxmk6VLl3D564CRRePLjitxzVa/3ey4Rmpstw5FYLrJIeeuk0fmg9/A8BkiH74xJKtCxFm+k8OpmBqJg==",
   "success": true,
-  "projectFilePath": "/Users/zuhaumar/Documents/Ecommerce/Ecommerce.csproj",
+  "projectFilePath": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/Ecommerce.csproj",
   "expectedPackageFiles": [
     "/Users/zuhaumar/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/Users/zuhaumar/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",

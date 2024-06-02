@@ -38,6 +38,8 @@ namespace Ecommerce.Repositories
         {
             var filter = Builders<User>.Filter.Eq(u => u.Id, id);
             var update = Builders<User>.Update
+                .Set(u => u.Firstname, user.Firstname)
+                .Set(u => u.Lastname, user.Lastname)
                 .Set(u => u.Username, user.Username)
                 .Set(u => u.Email, user.Email)
                 .Set(u => u.Password, user.Password);

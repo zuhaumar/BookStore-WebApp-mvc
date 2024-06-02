@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/zuhaumar/Documents/Ecommerce/Ecommerce.csproj": {}
+    "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/Ecommerce.csproj": {}
   },
   "projects": {
-    "/Users/zuhaumar/Documents/Ecommerce/Ecommerce.csproj": {
+    "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/zuhaumar/Documents/Ecommerce/Ecommerce.csproj",
+        "projectUniqueName": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/Ecommerce.csproj",
         "projectName": "Ecommerce",
-        "projectPath": "/Users/zuhaumar/Documents/Ecommerce/Ecommerce.csproj",
+        "projectPath": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/Ecommerce.csproj",
         "packagesPath": "/Users/zuhaumar/.nuget/packages/",
-        "outputPath": "/Users/zuhaumar/Documents/Ecommerce/obj/",
+        "outputPath": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/zuhaumar/.nuget/NuGet/NuGet.Config"
