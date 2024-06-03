@@ -127,6 +127,18 @@
         .logo img:hover {
             transform: scale(1.2); 
         }
+
+        .login-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            margin: 0 auto; 
+         }
+
+        .login-icon img {
+            width: 120px; 
+            height: 120px; 
+         }
     </style>
 
 </head>
@@ -136,6 +148,12 @@
     <div class="main-container">
 
         <div class="signup-form">
+
+            <div class="login-wrapper">
+                <a href="#" class="login-icon">
+                    <img src="@Url.Content("~/images/login.jpeg")" alt="Login Icon">
+                </a>
+            </div>
             @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 <div class="form-group">

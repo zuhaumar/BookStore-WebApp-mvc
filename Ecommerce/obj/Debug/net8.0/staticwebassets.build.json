@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "brnkrgseFQtEhCZLY863tamQWg00oSvEm9ex2ul6fdQ=",
+  "Hash": "DEgbjFLvmHp1dFq8VCGtAL+r4vFW6hde9N5q8NUrhGM=",
   "Source": "Ecommerce",
   "BasePath": "_content/Ecommerce",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/wwwroot/images/login.jpeg",
+      "SourceId": "Ecommerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/wwwroot/",
+      "BasePath": "_content/Ecommerce",
+      "RelativePath": "images/login.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/login.jpeg"
     },
     {
       "Identity": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/wwwroot/images/Logo.png",

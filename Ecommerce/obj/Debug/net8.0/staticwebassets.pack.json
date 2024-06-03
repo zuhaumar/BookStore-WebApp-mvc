@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets/images/Logo.png"
     },
     {
+      "Id": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/wwwroot/images/login.jpeg",
+      "PackagePath": "staticwebassets/images/login.jpeg"
+    },
+    {
       "Id": "/Users/zuhaumar/Documents/BookStore-WebApp-mvc/Ecommerce/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },
