@@ -7,32 +7,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap">
     <style>
         body {
             background-color: #dbf3f3;
             font-family: 'Work Sans', sans-serif;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            padding-left: 20px;
         }
 
         .signup-form {
             background-color: #fff;
-            padding: 30px;
-            width: 430px;
+            padding: 35px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
         .form-group {
             margin-bottom: 15px;
-            text-align: left;
         }
 
         .control-label {
-            font-weight: 125;
+            font-weight: 500;
         }
 
         .form-control {
@@ -59,14 +61,19 @@
         .text-danger {
             color: #dc3545;
         }
-        
-        .clearfix {
-            clear: both;
-        }
 
         .alert {
             margin-bottom: 15px;
             text-align: left;
+        }
+
+        .validation-summary-errors ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .validation-summary-errors li {
+            padding-left: 0;
         }
     </style>
 </head>
@@ -76,57 +83,43 @@
         @using (Html.BeginForm("Signup", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
             <div class="form-group">
-                @Html.LabelFor(m => m.Firstname, "First Name", htmlAttributes: new { @class = "control-label col-md-3" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control", placeholder = "Enter your first name" })
-                </div>
+                @Html.LabelFor(m => m.Firstname, "First Name", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control", placeholder = "Enter your first name" })
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.Lastname, "Last Name", htmlAttributes: new { @class = "control-label col-md-3" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control", placeholder = "Enter your last name" })
-                </div>
+                @Html.LabelFor(m => m.Lastname, "Last Name", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control", placeholder = "Enter your last name" })
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.Username, htmlAttributes: new { @class = "control-label col-md-3" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter your username" })
-                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
-                </div>
+                @Html.LabelFor(m => m.Username, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter your username" })
+                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "control-label col-md-3" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your email" })
-                </div>
+                @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your email" })
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "control-label col-md-3" })
-                <div class="col-md-10">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
-                </div>
+                @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "control-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Sign Up" class="btn btn-primary" />
-                </div>
+                <input type="submit" value="Sign Up" class="btn btn-primary" />
             </div>
-
-            <div class="clearfix"></div>
 
             @if (!ViewData.ModelState.IsValid)
             {
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger validation-summary-errors" role="alert">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 </div>
             }
         }
     </div>
-    
+
 </body>
 </html>

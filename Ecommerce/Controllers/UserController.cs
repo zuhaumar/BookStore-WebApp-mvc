@@ -26,7 +26,7 @@ public class UserController : Controller
             // Check if the username is not null or empty
             if (string.IsNullOrEmpty(user.Username))
             {
-                ModelState.AddModelError(string.Empty, "Username is required.");
+                ModelState.AddModelError(string.Empty, "Please enter a suitable username!");
                 return View(user);
             }
 
@@ -35,7 +35,7 @@ public class UserController : Controller
             
             if (existingUser != null)
             {
-                ModelState.AddModelError(string.Empty, "Username already exists.");
+                ModelState.AddModelError(string.Empty, "Select another username. This one already exists!");
                 return View(user);
             }
 
