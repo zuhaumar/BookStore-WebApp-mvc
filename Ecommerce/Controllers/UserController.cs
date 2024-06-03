@@ -54,11 +54,39 @@ public class UserController : Controller
         return View(books);
     }
 
-        [HttpGet]
-    public async Task<IActionResult> Login()
+    [HttpGet]
+    public ActionResult Login()
     {
-        var books = await _bookRepository.GetAllBooksAsync();
-        return View(books);
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Login(User user)
+    {
+        if (ModelState.IsValid)
+        {
+            // Check if the username and password are not null or empty
+            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
+            {
+                ModelState.AddModelError(string.Empty, "Invalid username or password!");
+                return View(user);
+            }
+
+            // Validate the user credentials
+            var authenticatedUser = await _userRepository.ValidateUserCredentials(user.Username, user.Password);
+            if (authenticatedUser != null)
+            {
+                // Redirect to the dashboard
+                return RedirectToAction("Dashboard", "User");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid username or password!");
+                return View(user);
+            }
+        }
+
+        return View(user);
     }
     
 }

@@ -1,87 +1,185 @@
+@model Ecommerce.Models.User
 @{
     ViewData["Title"] = "Login";
 }
 
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap">
     <style>
-         body {
-         font-family: Arial, sans-serif;
-         background-color: #f0f2f5;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         height: 100vh;
-         margin: 0;
-      }
+        body {
+            background-color: #dbf3f3;
+            font-family: 'Work Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-      .login-container {
-         background-color: #fff;
-         padding: 20px;
-         border-radius: 10px;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         width: 300px;
-         text-align: center;
-      }
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; 
+            width: 100%;
+            max-width: 1000px;
+        }
 
-      h2 {
-         margin-bottom: 20px;
-         color: #333;
-      }
+        .signup-form {
+            background-color: #fff;
+            padding: 35px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-      .input-group {
-         margin-bottom: 15px;
-         text-align: left;
-      }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-      .input-group label {
-         display: block;
-         margin-bottom: 5px;
-         color: #333;
-      }
+        .control-label {
+            font-weight: 500;
+        }
 
-      .input-group input {
-         width: 100%;
-         padding: 10px;
-         border: 1px solid #ccc;
-         border-radius: 5px;
-      }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-      button {
-         width: 100%;
-         padding: 10px;
-         background-color: #007bff;
-         color: #fff;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-      }
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #165bd8;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-      button:hover {
-         background-color: #0056b3;
-      }
+        .btn-primary:hover {
+            background-color: #0d4abf;
+        }
 
+        .text-danger {
+            color: #dc3545;
+        }
 
+        .alert {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .validation-summary-errors ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .validation-summary-errors li {
+            padding-left: 0;
+        }
+
+        .signup-content{
+            display: flex;
+            justify-content: space-between;
+            align-items: fl; 
+
+        }
+
+        .signup-content {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            width: calc(100% - 460px); /* Total Width - Width of white box and its padding */
+            align-items: flex-start; 
+            margin: 0 auto; /* Center the container horizontally */
+            margin-left: 90px;
+        }
+
+        .signup-text {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 45px;
+            font-weight: 500;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .signup-body {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 18px;
+            color: black;
+            margin-top: 30px; 
+        }
+
+        .logo img {
+            margin-bottom: 15px;
+            height: 60px;
+            width: auto;
+            transition: transform 0.5s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.2); 
+        }
     </style>
+
 </head>
 
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form>
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+
+    <div class="main-container">
+
+        <div class="signup-form">
+            @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter your username" })
+                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "control-label" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+
+                <div>
+                    <p>Don't have an account? <a href="/User/Signup">Sign Up</a></p>
+                </div>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger validation-summary-errors" role="alert">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="signup-content">
+            <div>
+                <a href="/Home/Index" class="logo">
+                    <img src="@Url.Content("~/images/logo.png")" alt="Logo">
+                </a>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="Login">Login</button>
-        </form>
+            <p class="signup-text"> Login as Breezy User</p>
+            <p class="signup-body">
+                Breezy Book Store simplifies your book-buying experience by organizing our collection into various genres, ensuring you find your next favorite read effortlessly. Explore fiction, non-fiction, romance, mystery, and more, all in one breezy spot.
+            </p>
+        </div>
+
     </div>
+
 </body>
 </html>

@@ -52,5 +52,16 @@ namespace Ecommerce.Repositories
             var result = await _userCollection.DeleteOneAsync(user => user.Id == id);
             return result.IsAcknowledged && result.DeletedCount > 0;
         }
+
+        public async Task<User?> ValidateUserCredentials(string username, string password)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Username, username);
+            var user = await _userCollection.Find(filter).FirstOrDefaultAsync();
+            if (user != null && user.Password == password)
+            {
+                return user;
+            }
+            return null;
+        }
     }
 }
