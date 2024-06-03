@@ -40,6 +40,7 @@ public class UserController : Controller
             }
 
             await _userRepository.CreateUser(user);
+            return RedirectToAction("Dashboard", "User");
         }
 
         return View(user);
